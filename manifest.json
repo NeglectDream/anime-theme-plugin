@@ -1,0 +1,1317 @@
+{
+	"schemaVersion": 1,
+	"pluginId": "cn.mcd7.neglectdream.anime-glass",
+	"version": "1.5.7",
+	"displayName": "AnimeGlass",
+	"description": "A soft anime-style theme with translucent frosted panels and a sakura wallpaper. Ships a complete light (daylight sky) and dark (moonlit sky) pair, so it follows the system color scheme instead of requiring one. Text is deliberately deepened (light) or lightened (dark) so the UI stays legible over the art. Pure whitelisted design tokens — no code execution.",
+	"publisher": {
+		"id": "neglectdream",
+		"name": "NeglectDream"
+	},
+	"license": "MIT",
+	"engine": {
+		"runtime": "bun",
+		"runtimeVersion": ">=1.2 <2",
+		"hostApi": ">=1.0 <2",
+		"rpc": "narrafork.rpc/1",
+		"features": [],
+		"os": [
+			"linux",
+			"darwin",
+			"win32"
+		],
+		"arch": [
+			"x64",
+			"arm64"
+		],
+		"runner": "local-process"
+	},
+	"server": {
+		"entry": "server/index.js",
+		"transport": "stdio",
+		"protocol": "narrafork.rpc/1",
+		"args": [],
+		"workingDirectory": "package",
+		"startupTimeoutMs": 15000,
+		"activationTimeoutMs": 30000
+	},
+	"ui": {
+		"entry": "ui/wallpapers.iife.js",
+		"format": "iife",
+		"style": "ui/wallpapers.css",
+		"shell": "host-controlled"
+	},
+	"activationEvents": [
+		"onStartup",
+		"onView:sakura-wallpapers"
+	],
+	"contributes": {
+		"providers": [],
+		"searchProviders": [],
+		"tools": [],
+		"commands": [],
+		"events": [],
+		"views": [
+			{
+				"id": "sakura-wallpapers",
+				"title": "壁纸管理",
+				"entry": "ui/wallpapers.iife.js",
+				"style": "ui/wallpapers.css",
+				"surfaces": [
+					"settings"
+				],
+				"scope": "global",
+				"instance": "singleton"
+			}
+		],
+		"themes": [
+			{
+				"id": "sakura-glass",
+				"title": "AnimeGlass",
+				"colorScheme": "both",
+				"fonts": [],
+				"tokens": {
+					"radius": "14px",
+					"shadow": 14,
+					"fontFamily": "system-ui",
+					"colors": {
+						"sakura": "#ff8fc0",
+						"sky": "#8fc4ff",
+						"mint": "#7fd8c4",
+						"lilac": "#b9a6f2",
+						"cream": "#ffe9c9",
+						"gray": [
+							"#f8f9fa",
+							"#f1f3f5",
+							"#e9ecef",
+							"#dee2e6",
+							"#ced4da",
+							"#adb5bd",
+							"#4a5058",
+							"#495057",
+							"#343a40",
+							"#212529"
+						],
+						"blue": [
+							"#1c3f7a",
+							"#d0ebff",
+							"#a5d8ff",
+							"#74c0fc",
+							"#4dabf7",
+							"#339af0",
+							"#228be6",
+							"#1c7ed6",
+							"#1971c2",
+							"#1864ab"
+						]
+					},
+					"light": {
+						"primaryColor": "#204297",
+						"body": "rgba(244, 245, 248, 0.36)",
+						"text": "rgba(27, 35, 55, 1)",
+						"backgrounds": {
+							"body": {
+								"image": "assets/day.jpg",
+								"size": "cover",
+								"position": "center",
+								"repeat": "no-repeat",
+								"overlay": "scrim-light",
+								"opacity": 0.25
+							}
+						},
+						"gradients": {
+							"main": {
+								"from": "rgba(244, 245, 249, 0.14)",
+								"to": "rgba(244, 245, 249, 0.08)",
+								"angle": 180
+							},
+							"navbar": {
+								"from": "rgba(244, 245, 249, 0.38)",
+								"to": "rgba(244, 245, 249, 0.28)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.46)",
+								"viaAt": 8
+							},
+							"header": {
+								"from": "rgba(244, 245, 249, 0.42)",
+								"to": "rgba(244, 245, 249, 0.32)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.52)",
+								"viaAt": 12
+							},
+							"footer": {
+								"from": "rgba(244, 245, 249, 0.36)",
+								"to": "rgba(244, 245, 249, 0.26)",
+								"angle": 0
+							},
+							"card": {
+								"from": "rgba(244, 245, 249, 0.66)",
+								"to": "rgba(244, 245, 249, 0.56)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.74)",
+								"viaAt": 10
+							},
+							"paper": {
+								"from": "rgba(244, 245, 249, 0.68)",
+								"to": "rgba(244, 245, 249, 0.58)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.76)",
+								"viaAt": 10
+							},
+							"modal": {
+								"from": "rgba(244, 245, 249, 0.84)",
+								"to": "rgba(244, 245, 249, 0.78)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.9)",
+								"viaAt": 10
+							},
+							"input": {
+								"from": "rgba(244, 245, 249, 0.7)",
+								"to": "rgba(244, 245, 249, 0.62)",
+								"angle": 180
+							},
+							"inputFocus": {
+								"from": "rgba(244, 245, 249, 0.86)",
+								"to": "rgba(244, 245, 249, 0.82)",
+								"angle": 180
+							},
+							"menu": {
+								"from": "rgba(244, 245, 249, 0.86)",
+								"to": "rgba(244, 245, 249, 0.82)",
+								"angle": 180
+							},
+							"menuItemHover": {
+								"from": "rgba(244, 245, 249, 0.62)",
+								"to": "rgba(244, 245, 249, 0.54)",
+								"angle": 90
+							},
+							"navLink": {
+								"from": "rgba(244, 245, 249, 0.12)",
+								"to": "rgba(244, 245, 249, 0.06)",
+								"angle": 180
+							},
+							"navLinkHover": {
+								"from": "rgba(244, 245, 249, 0.44)",
+								"to": "rgba(244, 245, 249, 0.34)",
+								"angle": 180
+							},
+							"navLinkActive": {
+								"from": "rgba(148, 168, 219, 0.66)",
+								"to": "rgba(148, 168, 219, 0.56)",
+								"angle": 135
+							},
+							"actionIcon": {
+								"from": "rgba(244, 245, 249, 0.42)",
+								"to": "rgba(244, 245, 249, 0.32)",
+								"angle": 180
+							},
+							"actionIconHover": {
+								"from": "rgba(244, 245, 249, 0.64)",
+								"to": "rgba(244, 245, 249, 0.54)",
+								"angle": 180
+							},
+							"table": {
+								"from": "rgba(244, 245, 249, 0.62)",
+								"to": "rgba(244, 245, 249, 0.52)",
+								"angle": 180
+							},
+							"tableHeader": {
+								"from": "rgba(244, 245, 249, 0.66)",
+								"to": "rgba(244, 245, 249, 0.56)",
+								"angle": 180
+							},
+							"code": {
+								"from": "rgba(244, 245, 249, 0.74)",
+								"to": "rgba(244, 245, 249, 0.66)",
+								"angle": 180
+							},
+							"scrollbar": {
+								"from": "rgba(244, 245, 249, 0.48)",
+								"to": "rgba(244, 245, 249, 0.38)",
+								"angle": 180
+							},
+							"scrollbarThumb": {
+								"from": "rgba(139, 164, 228, 0.7)",
+								"to": "rgba(139, 164, 228, 0.7)",
+								"angle": 180
+							},
+							"divider": {
+								"from": "rgba(151, 169, 216, 0.4)",
+								"to": "rgba(151, 169, 216, 0.4)",
+								"angle": 180
+							},
+							"button": {
+								"from": "rgba(41, 70, 142, 1)",
+								"to": "rgba(37, 62, 126, 1)",
+								"angle": 180
+							},
+							"buttonHover": {
+								"from": "rgba(46, 77, 158, 1)",
+								"to": "rgba(41, 70, 142, 1)",
+								"angle": 180
+							},
+							"buttonActive": {
+								"from": "rgba(37, 62, 126, 1)",
+								"to": "rgba(37, 62, 126, 1)",
+								"angle": 180
+							},
+							"badge": {
+								"from": "rgba(41, 70, 142, 1)",
+								"to": "rgba(37, 62, 126, 1)",
+								"angle": 180
+							},
+							"tooltip": {
+								"from": "rgba(28, 33, 47, 0.95)",
+								"to": "rgba(20, 24, 34, 0.95)",
+								"angle": 180
+							}
+						},
+						"textColors": {
+							"navbar": "rgba(27, 35, 55, 1)",
+							"header": "rgba(27, 35, 55, 1)",
+							"footer": "rgba(43, 53, 80, 1)",
+							"main": "rgba(27, 35, 55, 1)",
+							"card": "rgba(27, 35, 55, 1)",
+							"paper": "rgba(27, 35, 55, 1)",
+							"modal": "rgba(27, 35, 55, 1)",
+							"input": "rgba(27, 35, 55, 1)",
+							"table": "rgba(27, 35, 55, 1)",
+							"tableHeader": "rgba(27, 35, 55, 1)",
+							"menu": "rgba(27, 35, 55, 1)",
+							"menuItem": "rgba(27, 35, 55, 1)",
+							"navLink": "rgba(27, 35, 55, 1)",
+							"actionIcon": "rgba(43, 53, 80, 1)",
+							"code": "rgba(42, 61, 111, 1)",
+							"button": "#ffffff",
+							"buttonHover": "#ffffff",
+							"buttonActive": "#ffffff",
+							"badge": "#ffffff",
+							"navLinkActive": "rgba(25, 40, 77, 1)",
+							"scrollbarThumb": "rgba(27, 35, 55, 1)",
+							"tooltip": "rgba(240, 241, 245, 1)"
+						},
+						"borders": {
+							"navbar": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"edges": [
+									"right"
+								]
+							},
+							"header": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"footer": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"edges": [
+									"top"
+								]
+							},
+							"card": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 16
+							},
+							"paper": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 16
+							},
+							"modal": {
+								"width": 1,
+								"color": "rgba(255, 255, 255, 0.45)",
+								"inset": true,
+								"radius": 18
+							},
+							"input": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 10
+							},
+							"menu": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 14
+							},
+							"menuItem": {
+								"radius": 8
+							},
+							"navLink": {
+								"radius": 10
+							},
+							"navLinkActive": {
+								"width": 1,
+								"color": "rgba(255, 255, 255, 0.55)",
+								"inset": true,
+								"radius": 10
+							},
+							"badge": {
+								"radius": 10
+							},
+							"button": {
+								"radius": 12
+							},
+							"actionIcon": {
+								"radius": 10
+							},
+							"table": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.35)",
+								"inset": true,
+								"radius": 12
+							},
+							"tableHeader": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.39)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"code": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.4)",
+								"inset": true,
+								"radius": 8
+							},
+							"tooltip": {
+								"radius": 10
+							},
+							"scrollbarThumb": {
+								"radius": 8
+							}
+						}
+					},
+					"dark": {
+						"primaryColor": "#872269",
+						"body": "rgba(45, 23, 39, 0.56)",
+						"text": "rgba(243, 236, 241, 1)",
+						"backgrounds": {
+							"body": {
+								"image": "assets/night.jpg",
+								"size": "cover",
+								"position": "center",
+								"repeat": "no-repeat",
+								"overlay": "scrim-dark",
+								"opacity": 0.2
+							}
+						},
+						"gradients": {
+							"main": {
+								"from": "rgba(47, 21, 39, 0.14)",
+								"to": "rgba(47, 21, 39, 0.08)",
+								"angle": 180
+							},
+							"navbar": {
+								"from": "rgba(47, 21, 39, 0.38)",
+								"to": "rgba(47, 21, 39, 0.28)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.46)",
+								"viaAt": 8
+							},
+							"header": {
+								"from": "rgba(47, 21, 39, 0.42)",
+								"to": "rgba(47, 21, 39, 0.32)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.52)",
+								"viaAt": 12
+							},
+							"footer": {
+								"from": "rgba(47, 21, 39, 0.36)",
+								"to": "rgba(47, 21, 39, 0.26)",
+								"angle": 0
+							},
+							"card": {
+								"from": "rgba(47, 21, 39, 0.66)",
+								"to": "rgba(47, 21, 39, 0.56)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.74)",
+								"viaAt": 10
+							},
+							"paper": {
+								"from": "rgba(47, 21, 39, 0.68)",
+								"to": "rgba(47, 21, 39, 0.58)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.76)",
+								"viaAt": 10
+							},
+							"modal": {
+								"from": "rgba(47, 21, 39, 0.84)",
+								"to": "rgba(47, 21, 39, 0.78)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.9)",
+								"viaAt": 10
+							},
+							"input": {
+								"from": "rgba(47, 21, 39, 0.7)",
+								"to": "rgba(47, 21, 39, 0.62)",
+								"angle": 180
+							},
+							"inputFocus": {
+								"from": "rgba(47, 21, 39, 0.86)",
+								"to": "rgba(47, 21, 39, 0.82)",
+								"angle": 180
+							},
+							"menu": {
+								"from": "rgba(47, 21, 39, 0.86)",
+								"to": "rgba(47, 21, 39, 0.82)",
+								"angle": 180
+							},
+							"menuItemHover": {
+								"from": "rgba(47, 21, 39, 0.62)",
+								"to": "rgba(47, 21, 39, 0.54)",
+								"angle": 90
+							},
+							"navLink": {
+								"from": "rgba(47, 21, 39, 0.12)",
+								"to": "rgba(47, 21, 39, 0.06)",
+								"angle": 180
+							},
+							"navLinkHover": {
+								"from": "rgba(47, 21, 39, 0.44)",
+								"to": "rgba(47, 21, 39, 0.34)",
+								"angle": 180
+							},
+							"navLinkActive": {
+								"from": "rgba(161, 54, 129, 0.66)",
+								"to": "rgba(161, 54, 129, 0.56)",
+								"angle": 135
+							},
+							"actionIcon": {
+								"from": "rgba(47, 21, 39, 0.42)",
+								"to": "rgba(47, 21, 39, 0.32)",
+								"angle": 180
+							},
+							"actionIconHover": {
+								"from": "rgba(47, 21, 39, 0.64)",
+								"to": "rgba(47, 21, 39, 0.54)",
+								"angle": 180
+							},
+							"table": {
+								"from": "rgba(47, 21, 39, 0.62)",
+								"to": "rgba(47, 21, 39, 0.52)",
+								"angle": 180
+							},
+							"tableHeader": {
+								"from": "rgba(47, 21, 39, 0.66)",
+								"to": "rgba(47, 21, 39, 0.56)",
+								"angle": 180
+							},
+							"code": {
+								"from": "rgba(47, 21, 39, 0.74)",
+								"to": "rgba(47, 21, 39, 0.66)",
+								"angle": 180
+							},
+							"scrollbar": {
+								"from": "rgba(47, 21, 39, 0.48)",
+								"to": "rgba(47, 21, 39, 0.38)",
+								"angle": 180
+							},
+							"scrollbarThumb": {
+								"from": "rgba(174, 41, 134, 0.7)",
+								"to": "rgba(174, 41, 134, 0.7)",
+								"angle": 180
+							},
+							"divider": {
+								"from": "rgba(155, 59, 127, 0.4)",
+								"to": "rgba(155, 59, 127, 0.4)",
+								"angle": 180
+							},
+							"button": {
+								"from": "rgba(126, 42, 101, 1)",
+								"to": "rgba(111, 37, 89, 1)",
+								"angle": 180
+							},
+							"buttonHover": {
+								"from": "rgba(142, 47, 114, 1)",
+								"to": "rgba(126, 42, 101, 1)",
+								"angle": 180
+							},
+							"buttonActive": {
+								"from": "rgba(111, 37, 89, 1)",
+								"to": "rgba(111, 37, 89, 1)",
+								"angle": 180
+							},
+							"badge": {
+								"from": "rgba(126, 42, 101, 1)",
+								"to": "rgba(111, 37, 89, 1)",
+								"angle": 180
+							},
+							"tooltip": {
+								"from": "rgba(244, 233, 240, 0.96)",
+								"to": "rgba(237, 219, 232, 0.96)",
+								"angle": 180
+							}
+						},
+						"textColors": {
+							"navbar": "rgba(243, 236, 241, 1)",
+							"header": "rgba(243, 236, 241, 1)",
+							"footer": "rgba(230, 219, 227, 1)",
+							"main": "rgba(243, 236, 241, 1)",
+							"card": "rgba(243, 236, 241, 1)",
+							"paper": "rgba(243, 236, 241, 1)",
+							"modal": "rgba(243, 236, 241, 1)",
+							"input": "rgba(243, 236, 241, 1)",
+							"table": "rgba(243, 236, 241, 1)",
+							"tableHeader": "rgba(243, 236, 241, 1)",
+							"menu": "rgba(243, 236, 241, 1)",
+							"menuItem": "rgba(243, 236, 241, 1)",
+							"navLink": "rgba(243, 236, 241, 1)",
+							"actionIcon": "rgba(230, 219, 227, 1)",
+							"code": "rgba(234, 205, 225, 1)",
+							"button": "#ffffff",
+							"buttonHover": "#ffffff",
+							"buttonActive": "#ffffff",
+							"badge": "#ffffff",
+							"navLinkActive": "rgba(245, 239, 244, 1)",
+							"scrollbarThumb": "rgba(245, 240, 243, 1)",
+							"tooltip": "rgba(66, 36, 57, 1)"
+						},
+						"borders": {
+							"navbar": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"edges": [
+									"right"
+								]
+							},
+							"header": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"footer": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"edges": [
+									"top"
+								]
+							},
+							"card": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 16
+							},
+							"paper": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 16
+							},
+							"modal": {
+								"width": 1,
+								"color": "rgba(90, 45, 76, 0.13)",
+								"inset": true,
+								"radius": 18
+							},
+							"input": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 10
+							},
+							"menu": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 14
+							},
+							"menuItem": {
+								"radius": 8
+							},
+							"navLink": {
+								"radius": 10
+							},
+							"navLinkActive": {
+								"width": 1,
+								"color": "rgba(90, 45, 76, 0.23)",
+								"inset": true,
+								"radius": 10
+							},
+							"badge": {
+								"radius": 10
+							},
+							"button": {
+								"radius": 12
+							},
+							"actionIcon": {
+								"radius": 10
+							},
+							"table": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.03)",
+								"inset": true,
+								"radius": 12
+							},
+							"tableHeader": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.07)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"code": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.08)",
+								"inset": true,
+								"radius": 8
+							},
+							"tooltip": {
+								"radius": 10
+							},
+							"scrollbarThumb": {
+								"radius": 8
+							}
+						}
+					}
+				}
+			},
+			{
+				"id": "sakura-glass-live",
+				"title": "AnimeGlass Live",
+				"colorScheme": "both",
+				"fonts": [],
+				"tokens": {
+					"radius": "14px",
+					"shadow": 14,
+					"fontFamily": "system-ui",
+					"colors": {
+						"sakura": "#ff8fc0",
+						"sky": "#8fc4ff",
+						"mint": "#7fd8c4",
+						"lilac": "#b9a6f2",
+						"cream": "#ffe9c9",
+						"gray": [
+							"#f8f9fa",
+							"#f1f3f5",
+							"#e9ecef",
+							"#dee2e6",
+							"#ced4da",
+							"#adb5bd",
+							"#4a5058",
+							"#495057",
+							"#343a40",
+							"#212529"
+						],
+						"blue": [
+							"#1c3f7a",
+							"#d0ebff",
+							"#a5d8ff",
+							"#74c0fc",
+							"#4dabf7",
+							"#339af0",
+							"#228be6",
+							"#1c7ed6",
+							"#1971c2",
+							"#1864ab"
+						]
+					},
+					"light": {
+						"primaryColor": "#204297",
+						"body": "rgba(244, 245, 248, 0.36)",
+						"text": "rgba(27, 35, 55, 1)",
+						"backgrounds": {
+							"body": {
+								"image": "assets/day-live.gif",
+								"size": "cover",
+								"position": "center",
+								"repeat": "no-repeat",
+								"overlay": "scrim-light",
+								"opacity": 0.25
+							}
+						},
+						"gradients": {
+							"main": {
+								"from": "rgba(244, 245, 249, 0.14)",
+								"to": "rgba(244, 245, 249, 0.08)",
+								"angle": 180
+							},
+							"navbar": {
+								"from": "rgba(244, 245, 249, 0.38)",
+								"to": "rgba(244, 245, 249, 0.28)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.46)",
+								"viaAt": 8
+							},
+							"header": {
+								"from": "rgba(244, 245, 249, 0.42)",
+								"to": "rgba(244, 245, 249, 0.32)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.52)",
+								"viaAt": 12
+							},
+							"footer": {
+								"from": "rgba(244, 245, 249, 0.36)",
+								"to": "rgba(244, 245, 249, 0.26)",
+								"angle": 0
+							},
+							"card": {
+								"from": "rgba(244, 245, 249, 0.66)",
+								"to": "rgba(244, 245, 249, 0.56)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.74)",
+								"viaAt": 10
+							},
+							"paper": {
+								"from": "rgba(244, 245, 249, 0.68)",
+								"to": "rgba(244, 245, 249, 0.58)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.76)",
+								"viaAt": 10
+							},
+							"modal": {
+								"from": "rgba(244, 245, 249, 0.84)",
+								"to": "rgba(244, 245, 249, 0.78)",
+								"angle": 180,
+								"via": "rgba(254, 254, 254, 0.9)",
+								"viaAt": 10
+							},
+							"input": {
+								"from": "rgba(244, 245, 249, 0.7)",
+								"to": "rgba(244, 245, 249, 0.62)",
+								"angle": 180
+							},
+							"inputFocus": {
+								"from": "rgba(244, 245, 249, 0.86)",
+								"to": "rgba(244, 245, 249, 0.82)",
+								"angle": 180
+							},
+							"menu": {
+								"from": "rgba(244, 245, 249, 0.86)",
+								"to": "rgba(244, 245, 249, 0.82)",
+								"angle": 180
+							},
+							"menuItemHover": {
+								"from": "rgba(244, 245, 249, 0.62)",
+								"to": "rgba(244, 245, 249, 0.54)",
+								"angle": 90
+							},
+							"navLink": {
+								"from": "rgba(244, 245, 249, 0.12)",
+								"to": "rgba(244, 245, 249, 0.06)",
+								"angle": 180
+							},
+							"navLinkHover": {
+								"from": "rgba(244, 245, 249, 0.44)",
+								"to": "rgba(244, 245, 249, 0.34)",
+								"angle": 180
+							},
+							"navLinkActive": {
+								"from": "rgba(148, 168, 219, 0.66)",
+								"to": "rgba(148, 168, 219, 0.56)",
+								"angle": 135
+							},
+							"actionIcon": {
+								"from": "rgba(244, 245, 249, 0.42)",
+								"to": "rgba(244, 245, 249, 0.32)",
+								"angle": 180
+							},
+							"actionIconHover": {
+								"from": "rgba(244, 245, 249, 0.64)",
+								"to": "rgba(244, 245, 249, 0.54)",
+								"angle": 180
+							},
+							"table": {
+								"from": "rgba(244, 245, 249, 0.62)",
+								"to": "rgba(244, 245, 249, 0.52)",
+								"angle": 180
+							},
+							"tableHeader": {
+								"from": "rgba(244, 245, 249, 0.66)",
+								"to": "rgba(244, 245, 249, 0.56)",
+								"angle": 180
+							},
+							"code": {
+								"from": "rgba(244, 245, 249, 0.74)",
+								"to": "rgba(244, 245, 249, 0.66)",
+								"angle": 180
+							},
+							"scrollbar": {
+								"from": "rgba(244, 245, 249, 0.48)",
+								"to": "rgba(244, 245, 249, 0.38)",
+								"angle": 180
+							},
+							"scrollbarThumb": {
+								"from": "rgba(139, 164, 228, 0.7)",
+								"to": "rgba(139, 164, 228, 0.7)",
+								"angle": 180
+							},
+							"divider": {
+								"from": "rgba(151, 169, 216, 0.4)",
+								"to": "rgba(151, 169, 216, 0.4)",
+								"angle": 180
+							},
+							"button": {
+								"from": "rgba(41, 70, 142, 1)",
+								"to": "rgba(37, 62, 126, 1)",
+								"angle": 180
+							},
+							"buttonHover": {
+								"from": "rgba(46, 77, 158, 1)",
+								"to": "rgba(41, 70, 142, 1)",
+								"angle": 180
+							},
+							"buttonActive": {
+								"from": "rgba(37, 62, 126, 1)",
+								"to": "rgba(37, 62, 126, 1)",
+								"angle": 180
+							},
+							"badge": {
+								"from": "rgba(41, 70, 142, 1)",
+								"to": "rgba(37, 62, 126, 1)",
+								"angle": 180
+							},
+							"tooltip": {
+								"from": "rgba(28, 33, 47, 0.95)",
+								"to": "rgba(20, 24, 34, 0.95)",
+								"angle": 180
+							}
+						},
+						"textColors": {
+							"navbar": "rgba(27, 35, 55, 1)",
+							"header": "rgba(27, 35, 55, 1)",
+							"footer": "rgba(43, 53, 80, 1)",
+							"main": "rgba(27, 35, 55, 1)",
+							"card": "rgba(27, 35, 55, 1)",
+							"paper": "rgba(27, 35, 55, 1)",
+							"modal": "rgba(27, 35, 55, 1)",
+							"input": "rgba(27, 35, 55, 1)",
+							"table": "rgba(27, 35, 55, 1)",
+							"tableHeader": "rgba(27, 35, 55, 1)",
+							"menu": "rgba(27, 35, 55, 1)",
+							"menuItem": "rgba(27, 35, 55, 1)",
+							"navLink": "rgba(27, 35, 55, 1)",
+							"actionIcon": "rgba(43, 53, 80, 1)",
+							"code": "rgba(42, 61, 111, 1)",
+							"button": "#ffffff",
+							"buttonHover": "#ffffff",
+							"buttonActive": "#ffffff",
+							"badge": "#ffffff",
+							"navLinkActive": "rgba(25, 40, 77, 1)",
+							"scrollbarThumb": "rgba(27, 35, 55, 1)",
+							"tooltip": "rgba(240, 241, 245, 1)"
+						},
+						"borders": {
+							"navbar": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"edges": [
+									"right"
+								]
+							},
+							"header": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"footer": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"edges": [
+									"top"
+								]
+							},
+							"card": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 16
+							},
+							"paper": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 16
+							},
+							"modal": {
+								"width": 1,
+								"color": "rgba(255, 255, 255, 0.45)",
+								"inset": true,
+								"radius": 18
+							},
+							"input": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 10
+							},
+							"menu": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.45)",
+								"inset": true,
+								"radius": 14
+							},
+							"menuItem": {
+								"radius": 8
+							},
+							"navLink": {
+								"radius": 10
+							},
+							"navLinkActive": {
+								"width": 1,
+								"color": "rgba(255, 255, 255, 0.55)",
+								"inset": true,
+								"radius": 10
+							},
+							"badge": {
+								"radius": 10
+							},
+							"button": {
+								"radius": 12
+							},
+							"actionIcon": {
+								"radius": 10
+							},
+							"table": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.35)",
+								"inset": true,
+								"radius": 12
+							},
+							"tableHeader": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.39)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"code": {
+								"width": 1,
+								"color": "rgba(254, 254, 254, 0.4)",
+								"inset": true,
+								"radius": 8
+							},
+							"tooltip": {
+								"radius": 10
+							},
+							"scrollbarThumb": {
+								"radius": 8
+							}
+						}
+					},
+					"dark": {
+						"primaryColor": "#872269",
+						"body": "rgba(45, 23, 39, 0.56)",
+						"text": "rgba(243, 236, 241, 1)",
+						"backgrounds": {
+							"body": {
+								"image": "assets/night-live.gif",
+								"size": "cover",
+								"position": "center",
+								"repeat": "no-repeat",
+								"overlay": "scrim-dark",
+								"opacity": 0.2
+							}
+						},
+						"gradients": {
+							"main": {
+								"from": "rgba(47, 21, 39, 0.14)",
+								"to": "rgba(47, 21, 39, 0.08)",
+								"angle": 180
+							},
+							"navbar": {
+								"from": "rgba(47, 21, 39, 0.38)",
+								"to": "rgba(47, 21, 39, 0.28)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.46)",
+								"viaAt": 8
+							},
+							"header": {
+								"from": "rgba(47, 21, 39, 0.42)",
+								"to": "rgba(47, 21, 39, 0.32)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.52)",
+								"viaAt": 12
+							},
+							"footer": {
+								"from": "rgba(47, 21, 39, 0.36)",
+								"to": "rgba(47, 21, 39, 0.26)",
+								"angle": 0
+							},
+							"card": {
+								"from": "rgba(47, 21, 39, 0.66)",
+								"to": "rgba(47, 21, 39, 0.56)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.74)",
+								"viaAt": 10
+							},
+							"paper": {
+								"from": "rgba(47, 21, 39, 0.68)",
+								"to": "rgba(47, 21, 39, 0.58)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.76)",
+								"viaAt": 10
+							},
+							"modal": {
+								"from": "rgba(47, 21, 39, 0.84)",
+								"to": "rgba(47, 21, 39, 0.78)",
+								"angle": 180,
+								"via": "rgba(58, 26, 48, 0.9)",
+								"viaAt": 10
+							},
+							"input": {
+								"from": "rgba(47, 21, 39, 0.7)",
+								"to": "rgba(47, 21, 39, 0.62)",
+								"angle": 180
+							},
+							"inputFocus": {
+								"from": "rgba(47, 21, 39, 0.86)",
+								"to": "rgba(47, 21, 39, 0.82)",
+								"angle": 180
+							},
+							"menu": {
+								"from": "rgba(47, 21, 39, 0.86)",
+								"to": "rgba(47, 21, 39, 0.82)",
+								"angle": 180
+							},
+							"menuItemHover": {
+								"from": "rgba(47, 21, 39, 0.62)",
+								"to": "rgba(47, 21, 39, 0.54)",
+								"angle": 90
+							},
+							"navLink": {
+								"from": "rgba(47, 21, 39, 0.12)",
+								"to": "rgba(47, 21, 39, 0.06)",
+								"angle": 180
+							},
+							"navLinkHover": {
+								"from": "rgba(47, 21, 39, 0.44)",
+								"to": "rgba(47, 21, 39, 0.34)",
+								"angle": 180
+							},
+							"navLinkActive": {
+								"from": "rgba(161, 54, 129, 0.66)",
+								"to": "rgba(161, 54, 129, 0.56)",
+								"angle": 135
+							},
+							"actionIcon": {
+								"from": "rgba(47, 21, 39, 0.42)",
+								"to": "rgba(47, 21, 39, 0.32)",
+								"angle": 180
+							},
+							"actionIconHover": {
+								"from": "rgba(47, 21, 39, 0.64)",
+								"to": "rgba(47, 21, 39, 0.54)",
+								"angle": 180
+							},
+							"table": {
+								"from": "rgba(47, 21, 39, 0.62)",
+								"to": "rgba(47, 21, 39, 0.52)",
+								"angle": 180
+							},
+							"tableHeader": {
+								"from": "rgba(47, 21, 39, 0.66)",
+								"to": "rgba(47, 21, 39, 0.56)",
+								"angle": 180
+							},
+							"code": {
+								"from": "rgba(47, 21, 39, 0.74)",
+								"to": "rgba(47, 21, 39, 0.66)",
+								"angle": 180
+							},
+							"scrollbar": {
+								"from": "rgba(47, 21, 39, 0.48)",
+								"to": "rgba(47, 21, 39, 0.38)",
+								"angle": 180
+							},
+							"scrollbarThumb": {
+								"from": "rgba(174, 41, 134, 0.7)",
+								"to": "rgba(174, 41, 134, 0.7)",
+								"angle": 180
+							},
+							"divider": {
+								"from": "rgba(155, 59, 127, 0.4)",
+								"to": "rgba(155, 59, 127, 0.4)",
+								"angle": 180
+							},
+							"button": {
+								"from": "rgba(126, 42, 101, 1)",
+								"to": "rgba(111, 37, 89, 1)",
+								"angle": 180
+							},
+							"buttonHover": {
+								"from": "rgba(142, 47, 114, 1)",
+								"to": "rgba(126, 42, 101, 1)",
+								"angle": 180
+							},
+							"buttonActive": {
+								"from": "rgba(111, 37, 89, 1)",
+								"to": "rgba(111, 37, 89, 1)",
+								"angle": 180
+							},
+							"badge": {
+								"from": "rgba(126, 42, 101, 1)",
+								"to": "rgba(111, 37, 89, 1)",
+								"angle": 180
+							},
+							"tooltip": {
+								"from": "rgba(244, 233, 240, 0.96)",
+								"to": "rgba(237, 219, 232, 0.96)",
+								"angle": 180
+							}
+						},
+						"textColors": {
+							"navbar": "rgba(243, 236, 241, 1)",
+							"header": "rgba(243, 236, 241, 1)",
+							"footer": "rgba(230, 219, 227, 1)",
+							"main": "rgba(243, 236, 241, 1)",
+							"card": "rgba(243, 236, 241, 1)",
+							"paper": "rgba(243, 236, 241, 1)",
+							"modal": "rgba(243, 236, 241, 1)",
+							"input": "rgba(243, 236, 241, 1)",
+							"table": "rgba(243, 236, 241, 1)",
+							"tableHeader": "rgba(243, 236, 241, 1)",
+							"menu": "rgba(243, 236, 241, 1)",
+							"menuItem": "rgba(243, 236, 241, 1)",
+							"navLink": "rgba(243, 236, 241, 1)",
+							"actionIcon": "rgba(230, 219, 227, 1)",
+							"code": "rgba(234, 205, 225, 1)",
+							"button": "#ffffff",
+							"buttonHover": "#ffffff",
+							"buttonActive": "#ffffff",
+							"badge": "#ffffff",
+							"navLinkActive": "rgba(245, 239, 244, 1)",
+							"scrollbarThumb": "rgba(245, 240, 243, 1)",
+							"tooltip": "rgba(66, 36, 57, 1)"
+						},
+						"borders": {
+							"navbar": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"edges": [
+									"right"
+								]
+							},
+							"header": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"footer": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"edges": [
+									"top"
+								]
+							},
+							"card": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 16
+							},
+							"paper": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 16
+							},
+							"modal": {
+								"width": 1,
+								"color": "rgba(90, 45, 76, 0.13)",
+								"inset": true,
+								"radius": 18
+							},
+							"input": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 10
+							},
+							"menu": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.13)",
+								"inset": true,
+								"radius": 14
+							},
+							"menuItem": {
+								"radius": 8
+							},
+							"navLink": {
+								"radius": 10
+							},
+							"navLinkActive": {
+								"width": 1,
+								"color": "rgba(90, 45, 76, 0.23)",
+								"inset": true,
+								"radius": 10
+							},
+							"badge": {
+								"radius": 10
+							},
+							"button": {
+								"radius": 12
+							},
+							"actionIcon": {
+								"radius": 10
+							},
+							"table": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.03)",
+								"inset": true,
+								"radius": 12
+							},
+							"tableHeader": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.07)",
+								"edges": [
+									"bottom"
+								]
+							},
+							"code": {
+								"width": 1,
+								"color": "rgba(79, 40, 68, 0.08)",
+								"inset": true,
+								"radius": 8
+							},
+							"tooltip": {
+								"radius": 10
+							},
+							"scrollbarThumb": {
+								"radius": 8
+							}
+						}
+					}
+				}
+			}
+		]
+	},
+	"permissions": {
+		"host": [
+			"ui.theme",
+			"ui.panel"
+		],
+		"network": {
+			"mode": "none",
+			"allow": []
+		},
+		"filesystem": {
+			"package": "readOnly",
+			"pluginData": "none",
+			"workspace": "none"
+		},
+		"process": {
+			"spawn": "none"
+		}
+	},
+	"secrets": [],
+	"dependencies": {
+		"plugins": {},
+		"runtime": {}
+	}
+}

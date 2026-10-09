@@ -1,0 +1,125 @@
+/*
+ * Styles for the wallpaper manager panel.
+ *
+ * The host injects the active theme's semantic tokens into the iframe as
+ * `--nf-*` custom properties, so the panel follows the user's theme (including
+ * this plugin's own frosted look) instead of hard-coding colors. The fallbacks
+ * matter: an older host injects nothing, and the panel still has to be readable.
+ */
+
+.wp-root {
+	margin: 0;
+	padding: 18px 20px 28px;
+	font: 13px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+	color: var(--nf-color-text, #e6e6e6);
+	/*
+	 * Opaque base first, the theme's tint over it.
+	 *
+	 * `--nf-color-body` is the theme's `body` token, and that token is translucent
+	 * by design: it exists to sit over the wallpaper. This panel renders on the
+	 * settings page, which has no wallpaper, so using the token as the panel's own
+	 * background composites it against whatever the host page happens to be — the
+	 * dark scheme's rgba(45,23,39,0.56) over the host's light page reads washed
+	 * out and pale, and the light scheme's rgba(244,245,248,0.36) leaves the text
+	 * fighting the page behind it.
+	 *
+	 * Painting an opaque surface underneath keeps the theme's tint (the tint is
+	 * layered on top) while guaranteeing the panel itself is never translucent, so
+	 * it is readable on either scheme regardless of what is behind it.
+	 */
+	background-color: var(--nf-color-surface, #ffffff);
+	background-image: linear-gradient(
+		var(--nf-color-body, transparent),
+		var(--nf-color-body, transparent)
+	);
+}
+
+.wp-root h1 {
+	margin: 0 0 6px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.wp-root h2 {
+	margin: 22px 0 8px;
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--nf-color-text, #e6e6e6);
+	opacity: 0.9;
+}
+
+.wp-lede {
+	margin: 0 0 16px;
+	color: var(--nf-color-dimmed, #9a9a9a);
+}
+
+.wp-path {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 10px 12px;
+	border: 1px solid var(--nf-color-border, #3a3a3a);
+	border-radius: var(--nf-radius, 8px);
+	background: var(--nf-color-surface, rgba(255, 255, 255, 0.04));
+}
+
+.wp-path-label {
+	font-size: 11px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--nf-color-dimmed, #9a9a9a);
+}
+
+.wp-path-value {
+	font-family: var(--nf-font-mono, ui-monospace, "SFMono-Regular", Consolas, monospace);
+	font-size: 12px;
+	word-break: break-all;
+	color: var(--nf-color-text, #e6e6e6);
+}
+
+.wp-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+
+.wp-table th {
+	text-align: left;
+	font-weight: 600;
+	padding: 6px 10px 6px 0;
+	border-bottom: 1px solid var(--nf-color-border, #3a3a3a);
+	color: var(--nf-color-dimmed, #9a9a9a);
+}
+
+.wp-table td {
+	padding: 6px 10px 6px 0;
+	border-bottom: 1px solid var(--nf-color-border, #2a2a2a);
+	vertical-align: top;
+}
+
+.wp-file {
+	font-family: var(--nf-font-mono, ui-monospace, "SFMono-Regular", Consolas, monospace);
+	white-space: nowrap;
+	color: var(--nf-color-primary, #7ab8ff);
+}
+
+.wp-steps {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.wp-steps li {
+	margin: 3px 0;
+}
+
+.wp-notes {
+	margin-top: 20px;
+	padding-top: 14px;
+	border-top: 1px solid var(--nf-color-border, #3a3a3a);
+	color: var(--nf-color-dimmed, #9a9a9a);
+	font-size: 12px;
+}
+
+.wp-notes p {
+	margin: 0 0 7px;
+}

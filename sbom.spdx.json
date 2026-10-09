@@ -1,0 +1,34 @@
+{
+	"spdxVersion": "SPDX-2.3",
+	"dataLicense": "CC0-1.0",
+	"SPDXID": "SPDXRef-DOCUMENT",
+	"name": "cn.mcd7.neglectdream.anime-glass",
+	"documentNamespace": "https://narrafork.local/sbom/cn.mcd7.neglectdream.anime-glass",
+	"packages": [
+		{
+			"SPDXID": "SPDXRef-cn.mcd7.neglectdream.anime-glass",
+			"name": "cn.mcd7.neglectdream.anime-glass",
+			"versionInfo": "1.5.7",
+			"licenseDeclared": "MIT",
+			"licenseConcluded": "MIT",
+			"supplier": "Person: NeglectDream"
+		},
+		{
+			"SPDXID": "SPDXRef-jpeg-js",
+			"name": "jpeg-js",
+			"versionInfo": "0.4.4",
+			"licenseDeclared": "BSD-3-Clause",
+			"licenseConcluded": "BSD-3-Clause",
+			"downloadLocation": "https://registry.npmjs.org/jpeg-js/-/jpeg-js-0.4.4.tgz",
+			"copyrightText": "Copyright (c) 2014, Eugene Ware",
+			"comment": "Vendored at vendor/jpeg-js/lib/decoder.js (decoder only) so the wallpaper manager can read the colours of a JPEG wallpaper. The host offers plugins no image decoding, and the UI iframe cannot decode one either: it is a sandboxed opaque origin, and the theme-asset route sends Cross-Origin-Resource-Policy: same-origin with no CORS header, so a canvas read would both fail to load and be tainted. Only the decoder is bundled; the encoder is not shipped."
+		}
+	],
+	"relationships": [
+		{
+			"spdxElementId": "SPDXRef-cn.mcd7.neglectdream.anime-glass",
+			"relationshipType": "CONTAINS",
+			"relatedSpdxElement": "SPDXRef-jpeg-js"
+		}
+	]
+}
