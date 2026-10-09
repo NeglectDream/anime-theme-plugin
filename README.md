@@ -28,6 +28,7 @@
 
 1. **安装**（管理员）：在「插件管理」中导入 `cn.mcd7.neglectdream.anime-glass-<version>.nfplugin`
 2. **启用主题**（每个用户）：**设置 → 外观 → 插件主题**，选中 `AnimeGlass`
+   <img width="2163" height="1052" alt="image" src="https://github.com/user-attachments/assets/28930add-2245-4296-984c-c00c0c675536" />
 
 只做第一步界面不会有任何变化。
 
