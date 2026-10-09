@@ -15,6 +15,13 @@
 | 宿主能力 | `ui.theme`、`ui.panel` |
 | 许可证 | MIT（含 BSD-3-Clause 的 vendored 组件） |
 
+## 展示图
+
+<img width="2559" height="1355" alt="image" src="https://github.com/user-attachments/assets/d17dca8f-9cbc-43bc-851b-ece1213654ad" />
+<img width="2559" height="1345" alt="image" src="https://github.com/user-attachments/assets/537575d2-e0e4-42b5-80f7-5d1535ffaec6" />
+<img width="1920" height="1018" alt="QQ20261009-212812-HD" src="https://github.com/user-attachments/assets/1fb83185-a91f-470a-b718-fa4ece756649" />
+<img width="1920" height="1008" alt="QQ20261009-212846-HD" src="https://github.com/user-attachments/assets/eeaa841b-ff13-4c3b-9a2f-3d391d07cc1d" />
+
 ## 安装
 
 **安装和启用是两步，都要做。**
